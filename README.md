@@ -3,7 +3,8 @@ power
 
 Power meter monitoring directly on the Pi using Open Energy Monitor and an LDR
 
-I've forked this from yfory's power meter: https://github.com/yfory/power
+
+I've forked this from yfory's power meter: https://github.com/yfory/power *The link is not working anymore.*
 
 His uses a capacitor/resistor for the LDR, I use a transistor based circuit instead to provide a digital on/off signal.
 His version also writes values to an SQLite database and graphs them itself, this does not.
