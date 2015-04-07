@@ -29,7 +29,9 @@
 """
 
 import time, os, subprocess, httplib, datetime
-from apscheduler.scheduler import Scheduler
+from apschedulers.scheduler import BackgroundScheduler
+
+def tick():
 
 # The next 2 lines enable logging for the scheduler. Uncomment for debugging.
 #import logging
@@ -39,7 +41,8 @@ pulsecount=0
 power=0
 
 # Start the scheduler
-sched = Scheduler()
+sched = BackgroundScheduler()
+sched.add_job(tick, 'interval', seconds=60)
 sched.start()
 
 
@@ -56,7 +59,7 @@ def runProcess(exe):
 
 
 # Every minute this function converts the number of pulses over the last minute into a power value and sends it to EmonCMS
-@sched.interval_schedule(minutes=1)
+#@sched.interval_schedule(minutes=1)
 def SendPulses():
 	global pulsecount
 	global power
